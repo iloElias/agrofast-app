@@ -34,7 +34,12 @@ export default function LoginScreen() {
         <TouchableOpacity style={styles.arrowBack} onPress={handleGoBack}>
           <Ionicons name="arrow-back" size={24} color="white" />
         </TouchableOpacity>
-        <Text style={styles.title}>Entrar na conta</Text>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Entrar em sua conta</Text>
+          <Text style={styles.subtitle}>
+            Digite aqui seu numero de telefone
+          </Text>
+        </View>
         <View style={styles.inputContainer}>
           <PhoneInput
             placeholder="Número de telefone"
@@ -48,6 +53,10 @@ export default function LoginScreen() {
         </View>
       </View>
       <View style={styles.buttonContainer}>
+        <Text style={styles.loginInfo}>
+          Ao continuar você receberá um SMS para verificação. Podem ser
+          aplicadas taxas de dados e mensagens.
+        </Text>
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonContent}>Fazer login</Text>
         </TouchableOpacity>
@@ -55,9 +64,8 @@ export default function LoginScreen() {
           style={styles.button}
           onPress={() => navigation.navigate("signup")}
         >
-          <Text style={styles.buttonContent}>
-            Não tenho uma conta
-          </Text>
+          <Text style={styles.buttonContent}>Não tenho uma conta</Text>
+          <Ionicons name="arrow-forward" size={24} color="white" />
         </TouchableOpacity>
       </View>
     </View>
@@ -72,12 +80,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#191919",
     padding: 16,
   },
+  titleContainer: {
+    gap: 8,
+    marginTop: 16,
+    marginBottom: 16,
+  },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     color: "white",
-    marginTop: 16,
-    marginBottom: 16,
+  },
+  subtitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "white",
   },
   button: {
     alignItems: "center",
@@ -87,11 +103,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     width: "100%",
     padding: 10,
-    gap: 24,
+    gap: 16,
   },
   buttonContent: {
     color: "white",
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: "bold",
   },
   arrowBack: {
@@ -115,5 +131,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 4,
+  },
+  loginInfo: {
+    color: "white",
+    fontSize: 14,
   },
 });

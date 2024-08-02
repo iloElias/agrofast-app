@@ -8,22 +8,22 @@ export default function WelcomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/images/icon.png")} style={styles.logoImage} />
+      <Image
+        source={require("../assets/images/icon.png")}
+        style={styles.logoImage}
+      />
       <Text style={styles.title}>AgriFast</Text>
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate("login")}
       >
         <Text style={styles.buttonText}>Vamos lá</Text>
-        <Ionicons
-          name="arrow-forward"
-          size={24}
-          color="white"
-        />
+        <Ionicons name="arrow-forward" size={24} color="white" />
       </TouchableOpacity>
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: "green",
     borderRadius: 8,
     padding: 10,
-    gap: 24,
+    gap: 16,
     position: "absolute",
     bottom: 60,
   },
